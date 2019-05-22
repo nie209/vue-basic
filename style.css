@@ -1,0 +1,16 @@
+#canvas{
+  width: 300px;
+  height: 200px;
+  border-width: 1px;
+  background-color: lightblue;
+  text-align: center;
+}
+
+
+div.myclass{
+  background-color: yellow;
+}
+
+.myclassname{
+  background-color: red;
+}

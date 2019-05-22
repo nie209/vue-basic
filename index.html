@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Basic with vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div id="vue-app">
+      <h1>Vue instance, data and methods </h1>
+      <p>{{msgs}}</p>
+      <p>{{greeting()}}</p>
+      <p>{{greetingWithParam("wilson", "hello")}}</p>
+      <h1>Data bindling</h1>
+      <a v-bind:href="googleLink">link to google search</a>
+      <p v-html="htmlGoogleLink"></p>
+      <input type="text" :value="inputDefaultText">
+      <h1>Vue Event and Event modifer and keyboard events</h1>
+      <p>the counter is {{counter}}</p>
+      <!-- Note: when use @ is the shorthand for v-on
+            when using @ or v-on calling function does not require ()-->
+      <button type="button" name="button" v-on:click="addOne">Add 1 to counter</button>
+      <button type="button" name="button" @click="counter--">Subtract 1 to counter</button>
+      <button type="button" name="button" @click="reset">Reset</button>
+      <button type="button" name="button" @click.once="addTen">Add 10 to counter once</button>
+      <div>
+        <h3>Canvas output the x and y position</h3>
+        <div id="canvas" @mousemove="updateXY">{{x_position}} , {{y_position}}</div>
+        <p>{{x_position}}, {{y_position}}</p>
+      </div>
+
+      <h1>Two way data binding</h1>
+      <input type="text" v-model='inputText'><br>
+      <span>you enter {{inputText}}</span>
+      <h1>Computed Properties</h1>
+      <p>The purpose of computed properties is ensure if you only run the function
+        that you intented to return, where in methods properties it will runn all
+        the functions being decleared in it </p>
+      <button type="button" @click="A++">A++</button>
+      <button type="button" @click="B++">B++</button><br>
+      <!-- Note when you calling computed properties you dont need the () even know is coded as a function -->
+      <span>A: {{A}}</span><br>
+      <span>20 + {{A}} = {{Aplus20}}</span><br>
+      <span>B: {{B}}</span><br>
+      <span>20 + {{B}} = {{Bplus20}}</span><br>
+      <h1>Dynamic CSS using vue</h1>
+      <h2>Example 1</h2>
+      <div @click="changeAvailable" :class="{myclass: available}">
+        <span :class="{myclass: available}">Dynamic CSS</span>
+      </div>
+      <h2>Example 2</h2>
+      <div :class="myClassStyle">
+        <span>wilson</span>
+      </div>
+      <button type="button" name="button" @click="available = !available">Toggle Wilson background</button>
+      <h1>conditional v-if and v-show</h1>
+      <div>
+        <span v-if="available">{{conditionalText}}</span><br>
+        <span v-show="available">{{conditionalText}}</span>
+      </div>
+      <h1>for loop using vue v-for</h1>
+        <ol>
+          <li v-for="name in listOfNames">{{name}}</li>
+        </ol>
+    </div>
+    <div id="vue-app-two">
+        <h1>Mutilple vue instance</h1>
+        <div>
+          <span>{{greetingFromApp2()}}</span>
+        </div>
+        <div>
+          <span>{{accessingApp1Funtion()}}</span>
+        </div>
+        <h1>Introduction to components</h1>
+        <myhtmltag></myhtmltag>
+        <h1>Introduction to ref in vue</h1>
+        <input type="text" ref="myinputbox">
+        <button type="button" name="button" @click="showAtt">Show input box attrubutes</button>
+        <h2>Open the console you will see all the input box attrubutes</h2>
+
+    </div>
+  </body>
+</html>
+
+<script src="main.js" charset="utf-8"></script>
